@@ -1,0 +1,24 @@
+//usage $gradle antBasedir
+//Gradle 1.0-milestone-3
+
+task antBasedir << {
+	
+	//testdirディレクトリの作成、コピー対象作成
+	ant.mkdir(dir:'testdir')
+	f = file('./testdir/a.txt')
+	assert(f.createNewFile())
+
+	//ベースディレクトリ変更
+	p = ant.project
+	println(p.baseDir.toString())
+	p.baseDir=file(p.baseDir.toString() + '/testdir')
+
+	//変更したベースディレクトリで作業
+	ant.copy(file:'a.txt' , tofile:'b.txt')
+
+	//あくまでantのbasedirを変更しただけなので、
+	//antオブジェクトを介さない動作には影響ない。
+	file('c.txt').createNewFile()
+}
+
+

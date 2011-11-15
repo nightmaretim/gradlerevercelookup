@@ -1,0 +1,8 @@
+//usage $gradle 
+//Gradle 1.0-milestone-3
+
+task A << {
+
+	println('From A')
+}
+

@@ -1,0 +1,8 @@
+//usage $gradle antTargetTest
+//Gradle 1.0-milestone-3
+
+task antTargetTest << {
+
+	println(ant.getProject().getTargets().toString())	
+}
+

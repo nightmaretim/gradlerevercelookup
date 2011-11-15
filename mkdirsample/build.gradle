@@ -1,0 +1,20 @@
+task mkdirSample << {
+	//通常作成
+        file('first').mkdir()
+        s = 'second'
+        file(s).mkdir()
+        //連続作成
+        for(i in 0..10)
+        {
+                file("third$i").mkdir()
+        }
+
+        //yymmdd追加
+        c = Calendar.getInstance()
+        file('forth'+c.get(Calendar.YEAR) +(c.get(Calendar.MONTH) + 1) + c.get(Calendar.DAY_OF_MONTH)).mkdir()
+        //ディレクトリ階層
+	s = './fifth/'
+	ant.mkdir(dir:"${s}fifth_1")
+	ant.mkdir(dir:"${s}fifth_2")
+	assert(file("${s}fifth_2").isDirectory())
+}

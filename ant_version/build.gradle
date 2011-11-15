@@ -1,0 +1,7 @@
+task antVersion << {
+	//デフォルトのantオブジェクトのプロパティ集をMapで入手
+	m = ant.getProperties()
+	//ant.versionをキーに取得
+	println(m.get('ant.version'))
+	println(m.get('basedir'))
+} 

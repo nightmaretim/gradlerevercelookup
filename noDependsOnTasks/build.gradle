@@ -1,0 +1,15 @@
+//usage $gradle taskclass 
+//Gradle 1.0-milestone-3
+
+defaultTasks 'c'
+
+task a << {
+
+	println('a')	
+}
+task b << {
+	println('b')	
+}
+task c(dependsOn:[a , b]) << {
+	println('c')	
+}	

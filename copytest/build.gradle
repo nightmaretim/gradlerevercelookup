@@ -1,0 +1,14 @@
+//usage $gradle taskclass 
+//Gradle 1.0-milestone-3
+
+defaultTasks 'copyTest'
+
+task copyTest << {
+
+	copy{
+
+		from './a.txt'
+		into './test'
+	}
+}
+

@@ -1,0 +1,17 @@
+//usage $gradle taskclass 
+//Gradle 1.0-milestone-3
+
+defaultTasks 'projectRootDir'
+
+task  projectRootDir << {
+	println(rootDir)
+
+	//testdirディレクトリの作成、コピー対象作成
+	ant.mkdir(dir:'testdir')
+	
+	//プロジェクトrootdir変更
+	rootDir = rootDir + '/testdir'
+	
+	f = file('a.txt')
+	assert(f.createNewFile())
+}	

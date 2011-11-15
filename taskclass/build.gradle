@@ -1,0 +1,9 @@
+//usage $gradle taskclass 
+//Gradle 1.0-milestone-3
+
+task taskClass << {
+
+	println('taskClass')	
+	println(taskClass.class.name)
+}
+

@@ -1,0 +1,14 @@
+//usage $gradle 
+//Gradle 1.0-milestone-3
+
+defaultTasks 'allProject'
+
+task allProject(dependsOn:[':a:A',':b:B',':c:C']) << {
+//task allProject << {
+
+//	println(project(':a').getAllTasks(true))
+	
+	println('from allProject')
+
+}
+
