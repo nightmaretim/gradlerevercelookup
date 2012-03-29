@@ -1,0 +1,24 @@
+//usage $gradle 
+//Gradle 1.0-milestone-3
+
+defaultTasks 'filemake'
+
+Calendar c = Calendar.getInstance()
+s = c.format('yyyyMMddHHmmss')
+
+task filemake {
+
+	f = file("${s}.txt")
+	f.createNewFile()
+
+}
+
+configurations{
+	readme = {task ->
+		file('readme.txt').append("${s} ${task} ${task.f} add\n")
+	}
+}
+
+artifacts{
+	readme filemake
+}

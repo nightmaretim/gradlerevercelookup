@@ -3,6 +3,10 @@
 
 defaultTasks 'allProject'
 
+subprojects{
+	println('sub!')
+}
+
 task allProject(dependsOn:[':a:A',':b:B',':c:C']) << {
 
 	println('from allProject')
